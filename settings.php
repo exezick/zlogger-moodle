@@ -52,16 +52,4 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configtext('logstore_zlogger/buffersize',
         get_string('buffersize', 'logstore_zlogger'),
         '', '50', PARAM_INT));
-
-    $settings->add(new admin_setting_configtext('logstore_zlogger/fluentd_url',
-        get_string('fluentd_url', 'logstore_zlogger'),
-        '', 'localhost', PARAM_TEXT));
-
-    $settings->add(new admin_setting_configtext('logstore_zlogger/fluentd_port',
-        get_string('fluentd_port', 'logstore_zlogger'),
-        '', '24224', PARAM_INT));
-
-    $settings->add(new admin_setting_configtext('logstore_zlogger/fluentd_tag',
-        get_string('fluentd_tag', 'logstore_zlogger'),
-        '', 'fluentd.moodle', PARAM_TEXT));
 }

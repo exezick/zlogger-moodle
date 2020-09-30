@@ -78,13 +78,13 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
     protected function insert_event_entries($evententries) {
         global $DB;
 
-        $DB->insert_records('logstore_zlogger_log', $evententries);
+        //$DB->insert_records('logstore_zlogger_log', $evententries);
     }
 
     public function get_events_select($selectwhere, array $params, $sort, $limitfrom, $limitnum) {
         global $DB;
 
-        $sort = self::tweak_sort_by_id($sort);
+        /*$sort = self::tweak_sort_by_id($sort);
 
         $events = array();
         $records = $DB->get_recordset_select('logstore_zlogger_log', $selectwhere, $params, $sort, '*', $limitfrom, $limitnum);
@@ -97,7 +97,7 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
 
         $records->close();
 
-        return $events;
+        return $events;*/
     }
 
     /**
@@ -117,11 +117,11 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
     public function get_events_select_iterator($selectwhere, array $params, $sort, $limitfrom, $limitnum) {
         global $DB;
 
-        $sort = self::tweak_sort_by_id($sort);
+        /*$sort = self::tweak_sort_by_id($sort);
 
         $recordset = $DB->get_recordset_select('logstore_zlogger_log', $selectwhere, $params, $sort, '*', $limitfrom, $limitnum);
 
-        return new \core\dml\recordset_walk($recordset, array($this, 'get_log_event'));
+        return new \core\dml\recordset_walk($recordset, array($this, 'get_log_event'));*/
     }
 
     /**
@@ -132,7 +132,7 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
      */
     public function get_log_event($data) {
 
-        $extra = array('origin' => $data->origin, 'ip' => $data->ip, 'realuserid' => $data->realuserid);
+        /*$extra = array('origin' => $data->origin, 'ip' => $data->ip, 'realuserid' => $data->realuserid);
         $data = (array)$data;
         $id = $data['id'];
         $data['other'] = self::decode_other($data['other']);
@@ -148,12 +148,12 @@ class store implements \tool_log\log\writer, \core\log\sql_internal_table_reader
             return null;
         }
 
-        return $event;
+        return $event;*/
     }
 
     public function get_events_select_count($selectwhere, array $params) {
         global $DB;
-        return $DB->count_records_select('logstore_zlogger_log', $selectwhere, $params);
+        //return $DB->count_records_select('logstore_zlogger_log', $selectwhere, $params);
     }
 
     public function get_internal_log_table_name() {
